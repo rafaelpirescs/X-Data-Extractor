@@ -1,4 +1,5 @@
 # X-Data-Extractor
+
 Um script de web scraping e análise de conteúdo para a plataforma X (antigo Twitter), focado em monitoramento contínuo, extração detalhada de metadados e processamento inteligente de mídias como imagens (OCR) e vídeos (transcrição de áudio).
 
 ## Descrição
@@ -32,21 +33,26 @@ O script foi desenvolvido com foco em resiliência e automação, incluindo meca
 ## Como Funciona
 
 O algoritmo opera em um ciclo contínuo com a seguinte lógica:
+
 1.  **Inicialização:** O script verifica a presença do Tesseract e do FFmpeg (primeiro no PATH do sistema, depois em caminhos manuais), carrega o modelo Whisper, os termos de busca e a lista de IDs já coletados.
+
 2.  **Início do Ciclo de Busca:** Para cada termo de busca:
-    a. Uma instância do navegador Chrome é aberta via Selenium.
-    b. O script navega para a página de resultados no `twiiit.com`.
-    c. A identidade do navegador (`User-Agent`) e os `cookies` da sessão são salvos.
+    -   Uma instância do navegador Chrome é aberta via Selenium.
+    -   O script navega para a página de resultados no `twiiit.com`.
+    -   A identidade do navegador (`User-Agent`) e os `cookies` da sessão são salvos.
+
 3.  **Processamento dos Posts:** Para cada post novo encontrado na página:
-    a. Os dados (texto, autor, etc.) são extraídos.
-    b. Se houver mídia, o script tenta baixá-la usando `yt-dlp`.
-    c. **Se o download falhar, o post é pulado** para ser tentado novamente no próximo ciclo.
-    d. Se o download for bem-sucedido, o script verifica a extensão do arquivo.
-    e. Se for uma imagem, realiza o OCR.
-    f. Se for um vídeo, primeiro verifica se há uma trilha de áudio.
-        i. Se houver áudio, tenta a transcrição com Whisper. **Se a transcrição falhar, o post é pulado**.
-        ii. Se não houver áudio, a transcrição é ignorada.
+    -   Os dados (texto, autor, etc.) são extraídos.
+    -   Se houver mídia, o script tenta baixá-la usando `yt-dlp`.
+    -   **Se o download falhar, o post é pulado** para ser tentado novamente no próximo ciclo.
+    -   Se o download for bem-sucedido, o script verifica a extensão do arquivo.
+    -   Se for uma imagem, realiza o OCR.
+    -   Se for um vídeo, primeiro verifica se há uma trilha de áudio.
+        -   Se houver áudio, tenta a transcrição com Whisper. **Se a transcrição falhar, o post é pulado**.
+        -   Se não houver áudio, a transcrição é ignorada.
+
 4.  **Salvamento:** Apenas os posts processados com 100% de sucesso são salvos em um arquivo JSON e seus IDs são registrados.
+
 5.  **Pausa:** O script aguarda o intervalo definido e inicia um novo ciclo.
 
 ## Estrutura do JSON de Saída
@@ -99,10 +105,8 @@ Os dados são salvos como uma lista de objetos JSON. Cada objeto representa um p
 
 ### Software
 -   **Python 3.8+**
--   **Tesseract OCR**: Ferramenta para reconhecimento de texto em imagens.
-    -   [Instruções de instalação](https://github.com/tesseract-ocr/tessdoc/blob/main/Installation.md)
--   **FFmpeg**: Essencial para processamento de áudio e vídeo.
-    -   [Instruções de instalação](https://ffmpeg.org/download.html)
+-   **Tesseract OCR**: Ferramenta para reconhecimento de texto em imagens. ([Instruções de instalação](https://github.com/tesseract-ocr/tessdoc/blob/main/Installation.md))
+-   **FFmpeg**: Essencial para processamento de áudio e vídeo. ([Instruções de instalação](https://ffmpeg.org/download.html))
 
 ### Bibliotecas Python
 Crie um arquivo `requirements.txt` com o conteúdo abaixo e instale com `pip install -r requirements.txt`:
@@ -122,7 +126,7 @@ selenium
 ### 1. Estrutura de Arquivos
 Para o correto funcionamento, a seguinte estrutura de pastas e arquivos deve ser mantida no diretório raiz:
 ```
-/X-Data-Extractor/
+/X-Metodo-Nitter/
 ├── chrome_profile/
 ├── Coletas/
 ├── coletor_x.py
@@ -158,8 +162,8 @@ Os dados coletados serão salvos na pasta `Coletas`.
 
 ## Observações Importantes
 
-* **Dependência do Front-End**: O coletor depende da estrutura HTML do site `twiiit.com`. Se este site sofrer alterações significativas ou sair do ar, o script precisará de manutenção.
-* **Recursos do Sistema**: A transcrição de vídeo com o Whisper é uma tarefa intensiva e pode consumir bastante CPU.
+-   **Dependência do Front-End**: O coletor depende da estrutura HTML do site `twiiit.com`. Se este site sofrer alterações significativas ou sair do ar, o script precisará de manutenção.
+-   **Recursos do Sistema**: A transcrição de vídeo com o Whisper é uma tarefa intensiva e pode consumir bastante CPU.
 
 ## Licença
 
