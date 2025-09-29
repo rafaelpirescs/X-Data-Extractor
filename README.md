@@ -100,7 +100,7 @@ Os dados são salvos como uma lista de objetos JSON. Cada objeto representa um p
 ### Software
 -   **Python 3.8+**
 -   **Tesseract OCR**: Ferramenta para reconhecimento de texto em imagens.
-    -   [Instruções de instalação para Windows](https://github.com/tesseract-ocr/tessdoc/blob/main/Installation.md)
+    -   [Instruções de instalação](https://github.com/tesseract-ocr/tessdoc/blob/main/Installation.md)
 -   **FFmpeg**: Essencial para processamento de áudio e vídeo.
     -   [Instruções de instalação](https://ffmpeg.org/download.html)
 
