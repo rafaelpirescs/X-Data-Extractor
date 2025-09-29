@@ -126,7 +126,7 @@ selenium
 ### 1. Estrutura de Arquivos
 Para o correto funcionamento, a seguinte estrutura de pastas e arquivos deve ser mantida no diretório raiz:
 ```
-/X-Metodo-Nitter/
+/X-Data-Extractor/
 ├── chrome_profile/
 ├── Coletas/
 ├── coletor_x.py
