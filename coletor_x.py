@@ -380,7 +380,7 @@ def coletar_posts_com_selenium(posts_ja_coletados: Set[str], modelo_whisper) -> 
 # --- BLOCO DE EXECUÇÃO PRINCIPAL ---
 if __name__ == "__main__":
     print("\n" + "="*60)
-    print("      INICIANDO COLETOR DE DADOS (VERSÃO FINAL)")
+    print("      INICIANDO COLETOR DE DADOS (X)")
     print("="*60 + "\n")
     try:
         ids_coletados_global = carregar_ids_ja_coletados(ARQUIVO_IDS_PERSISTIDOS)
@@ -417,4 +417,5 @@ if __name__ == "__main__":
         print(f"\n[ERRO FATAL DE WEBDRIVER] Verifique sua instalação do Chrome/ChromeDriver: {e}")
     except Exception as e:
         print(f"\n[ERRO FATAL] Ocorreu um erro inesperado: {e}")
+
     print("Monitoramento concluído.")
