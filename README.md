@@ -66,7 +66,7 @@ Os dados são salvos como uma lista de objetos JSON. Cada objeto representa um p
             "plataforma_postagem": "X",
             "data_coleta": "2025-09-29T19:35:10.123456Z",
             "coletado_via": "web_scraping",
-            "termo_busca_utilizado": "tecnologia OR \"inteligência artificial\""
+            "termo_busca_utilizado": "Brasil OR \"Tecnologia da Informação\""
         },
         "dados_postagem": {
             "id_post": "1234567890123456789",
@@ -88,12 +88,12 @@ Os dados são salvos como uma lista de objetos JSON. Cada objeto representa um p
             "contagem_visualacoes": null
         },
         "conteudo": {
-            "texto_principal": "Discutindo o futuro da inteligência artificial e seu impacto na sociedade. Veja a análise completa no vídeo!",
+            "texto_principal": "Discutindo o futuro...!",
             "anexos": [
                 {
                     "tipo_midia": "video",
-                    "url_midia": "[https://twiiit.com/usuario_exemplo/status/1234567890123456789](https://twiiit.com/usuario_exemplo/status/1234567890123456789)",
-                    "transcricao": "Olá a todos, no vídeo de hoje vamos explorar como os novos modelos de linguagem estão transformando o nosso dia a dia. É uma revolução silenciosa que acontece agora."
+                    "url_midia": "https://twiiit.com/usuario_exemplo/status/1234567890123456789",
+                    "transcricao": "Olá a todos, no vídeo de hoje..."
                 }
             ]
         }
